@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+// import WalletConnectProvider from "@walletconnect/web3-provider";
+// import { web3Provider } from '@web3-react/core'
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <React.StrictMode>   
     <App />
   </React.StrictMode>
 );

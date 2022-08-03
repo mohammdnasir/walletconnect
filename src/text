@@ -1,0 +1,160 @@
+//  const [provider, setProvider] = useState();
+  // const [library, setLibrary] = useState();
+  // const [account, setAccount] = useState();
+
+  // const web3 = new Web3(provider);
+  // const provider = new WalletConnectProvider({
+  //   infuraId: "27e484dcd9e3efcfd25a83a78777cdf1",
+  // });
+
+  // .catch((error) => {
+    //     if (error instanceof UnsupportedChainIdError) {
+    //         activate(walletconnect)
+    //     } else {
+    //         console.log('Pending Error Occured')
+    //     }
+    // })
+
+    // const connectWallet = async () => {
+    
+  //     const provider = await web3Modal.connect();
+  //     const library = new ethers.providers.Web3Provider(provider);
+  //     const accounts = await library.listAccounts();
+  //     const network = await library.getNetwork();
+  //     setProvider(provider);
+  //     setLibrary(library);
+      
+  //     console.log(provider);
+  //     console.log(library);
+  // }  
+
+
+// export default function Home() {
+//   const [provider, setProvider] = useState();
+//   const [library, setLibrary] = useState();
+//   const [account, setAccount] = useState();
+
+// }
+// const providerOptions = {
+//   WalletConnect: {
+//     package: WalletConnect, // required
+//     options: {
+//       infuraId: "27e484dcd9e3efcfd25a83a78777cdf1"
+//     }
+//   }
+// }
+
+// const web3Modal = new Web3Modal({
+//   cacheProvider: true, // optional
+//   providerOptions // required
+// });
+
+
+//qropencode
+
+// import WalletConnectProvider from "@walletconnect/web3-provider";
+// import Web3 from "web3";
+// import Web3Modal from "web3modal";
+// import { walletConnector } from "./connectors";
+// import { useWeb3React } from "@web3-react/core";
+
+// // Check if connection is already established
+// if (!walletConnector.connected) {
+//   // create new session
+//   walletConnector.createSession().then(() => {
+//     // get uri for QR Code modal
+//     const uri = walletConnector.uri;
+//     // display QR Code modal
+//     WalletConnectQRCodeModal.open(
+//       uri,
+//       () => {
+//         console.log("QR Code Modal closed");
+//       },
+//       true // isNode = true
+//     );
+//   });
+// }
+
+
+// <button>{wallletAccount ? '' : {wallletAccount : "Disconnected"}} Disconnect</button>
+
+
+    {/* <button onClick={connectWallet}>{wallletAccount ? <span><p>Connected</p></span> : "Connect"}</button><br/><br/><br/><br/> */}
+     <br />
+      {/* {walletConnector.connected ? <p>{walletConnector.accounts[0]}</p>: ""} */}
+      <br />
+    {/* <button onClick={walletConnector.disconnect}>disconnect</button> */}
+    {/* {walletConnector.connected ?  <button onClick={disconnect1}>Disconnect</button> : ""} */}
+
+    // console.log("123",walletConnector.accounts)
+ 
+  
+  
+  // Subscribe to connection events
+  // walletConnector.on("connect", (error, payload) => {
+  //   if (error) {
+  //     throw error;
+  //   }
+    
+  //   // Close QR Code Modal
+  //   WalletConnectQRCodeModal.close(
+  //     true // isNode = true
+  //     );
+      
+  //     // Get provided accounts and chainId
+  //     // const { accounts, chainId } = payload.params[0];
+  //   });
+    
+    //account
+    // 0x00633b0f1ED53bC457c93dD8134edfd6D5332515
+
+
+    //code 
+
+    
+        // const data = new FormData();
+        // const provider = new ethers.providers.Web3Provider(window.ethereum);
+        // await provider.send("eth_requestAccount", []);
+        // const singer = await provider.getSigner();
+        // const erc20 = new ethers.Contract(contractInfo.address, abi,singer);
+        // await erc20.transfer(data.get("receipt"), data.get("amount"));
+
+
+        //console
+         //   console.log("balance is--------->",bal)
+
+        //   console.log("name is---------->",tokenName)
+        //  console.log("symbol is---------->",tokenSymbol)
+        //  console.log("decimals is---------->",tokenDecimals)
+        //  console.log("totalSupply is-------->", tokenTotalSupply)
+        //  console.log("balanceof is---------->", tokenAccount)
+         
+          // async function connectMetaMask() {
+      //   if(window.ethereum){
+      //      window.ethereum.request({ method: 'eth_requestAccounts' });
+      //   }else{
+      //     alert("Install MetaMask")
+      //   }
+        
+      // }
+
+
+        // var send = await contractInfo.methods.transfer(metamaskAccount, "500000000")
+          //  .send({from: "0x00633b0f1ED53bC457c93dD8134edfd6D5332515"}).on('receipt', function(){
+          //         console.log(send);
+                  
+          //    })
+            
+            // var send = new Web3.eth.Contract([''],'0xE47cd1c32F45E90d87dd74102Ee41529a6F30372', {
+            //   from: "0x00633b0f1ED53bC457c93dD8134edfd6D5332515",
+            //   gasPrice : '200',
+            // })
+            // console.log(send);
+
+            //change acount
+
+            // const accountChangeHandler = (newAccount) =>{
+            //   setDefaultAccount(newAccount);
+            // }
+          
+            // window.ethereum.on('accountsChanged', accountChangeHandler);

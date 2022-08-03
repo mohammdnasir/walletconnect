@@ -5,7 +5,6 @@ import { useState } from 'react';
 import Web3 from 'web3';
 import {ethers, providers} from 'ethers';
 
-// import { useWeb3React } from '@web3-react/core';
 
 
 
@@ -47,7 +46,7 @@ const walletConnector = new NodeWalletConnect(
     const abi = [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"spender","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"inputs":[],"name":"_decimals","outputs":[{"internalType":"uint8","name":"","type":"uint8"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"spender","type":"address"}],"name":"allowance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"burn","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"decimals","outputs":[{"internalType":"uint8","name":"","type":"uint8"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"subtractedValue","type":"uint256"}],"name":"decreaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"getOwner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"addedValue","type":"uint256"}],"name":"increaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"mint","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transfer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"sender","type":"address"},{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"}]
   
     function App() {
-   
+      
       const [wallletAccount , setWallletAccount] = useState('');
       // const [metamaskAccount, setMetamaskAccount] = useState(''); 
       const [contractInfo, setContractInfo] = useState();
@@ -59,14 +58,14 @@ const walletConnector = new NodeWalletConnect(
       const[tokenReceiver, setTokenReceiver] = useState('');
       const[tokenAmount, setTokenAmount] = useState('');
       const[defaultAccount, setDefaultAccount] = useState('')
-    
+     
     
       
       
 
   async function connectWallet() { 
 
-    if (!walletConnector.connected ) {
+    if (!walletConnector.connected) {
       // create new session
       walletConnector.createSession().then(() => {
         // get uri for QR Code modal
@@ -81,7 +80,6 @@ const walletConnector = new NodeWalletConnect(
         );
       });
     }
-
 
     walletConnector.on("connect", (error, payload) => {
       if (error) {
@@ -116,9 +114,9 @@ const walletConnector = new NodeWalletConnect(
     
           provider.request({ method: 'eth_requestAccounts' }).then(result =>{
             accountChangeHandler(result[0])
-            
             // console.log(result[0]);
             // setMetamaskAccount(result[0]);
+            
             alert("connected")
           }).catch(err => {
             console.log(err);
@@ -126,21 +124,15 @@ const walletConnector = new NodeWalletConnect(
           })
           
         }
-        const accountChangeHandler = (newAccount) =>{
+        const accountChangeHandler = (newAccount) => {
           setDefaultAccount(newAccount);
-          // getUserBalance(newAccount.toString());
+          
         }
-        // const getUserBalance = (address) =>{
-        //   window.ethereum.request({method: 'eth_getBalance', params: [address, 'latest']})
-        //   .then(balance => {
-        //     setTokenBalance(ethers.utils.formatEther(balance));
-        //   })
-
-        // }
-      
+        
         provider.on('accountsChanged', accountChangeHandler);
 
         
+
         const web3 = new Web3(provider);
         
         const networkId = await web3.eth.net.getId();
@@ -149,9 +141,9 @@ const walletConnector = new NodeWalletConnect(
           "0xE47cd1c32F45E90d87dd74102Ee41529a6F30372"); 
           console.log("contract is----------->",tokenContract);
           setContractInfo(tokenContract)
+          
         }
-        
-        
+
         const disConnectMetaMask =  () =>{
           if(connectMetaMask !== ''){
             setDefaultAccount("")
@@ -159,11 +151,13 @@ const walletConnector = new NodeWalletConnect(
             alert("Disconnected MetaMask")
           }
           // window.location.reload()
-  
+
         }
-    
+        
+        // console.log("is full ---",wallletAccount);
 
         const getName = async (e) =>{
+          
           e.preventDefault();
           // let data;
           var name=await contractInfo.methods.name().call();
@@ -186,20 +180,16 @@ const walletConnector = new NodeWalletConnect(
         
         const handleTransfer = async (e) =>{
           e.preventDefault();
-          
+          // console.log("is not emty -", wallletAccount );
           var sum = tokenAmount*1000000000000000000;
-          var Add = sum.toString();
-          var recipientpt = await contractInfo.methods.transfer(tokenReceiver, Add).send({from: defaultAccount});
-          
-          console.log("recipientpt is ---------->",recipientpt);
-
-         
-          //  let res = await recipientpt.wait();
-          //  console.log("res",res);
-          
+          var Add = sum.toString()
+          // var fromAcc = wallletAccount.toString()
+          var recipientpt = await contractInfo.methods.transfer(tokenReceiver, Add).send({from : defaultAccount});
+          console.log("receipt is ---------->",recipientpt);
+        
         }
 
-        // console.log("meta mask acc --",defaultAccount);
+        // console.log("meta mask acc --",metamaskAccount);
 
         return (
           <div className="container-fluid">
@@ -233,8 +223,7 @@ const walletConnector = new NodeWalletConnect(
     <button onClick={connectMetaMask}>Connect To MetaMask</button><br/><br/> 
   </>
   }
-  {/* <button onClick={connectMetaMask}>Connect</button><br/>
-  {defaultAccount} */}
+ 
         
  
     
@@ -258,8 +247,6 @@ const walletConnector = new NodeWalletConnect(
         <h2>Write a Contract</h2>
       <input type="text" className='form-control' onChange={e => setTokenReceiver(e.target.value)} value={tokenReceiver} placeholder='Receipt Address'/><br/>
       <input type="text" className='form-control' onChange={e => setTokenAmount(e.target.value)} value={tokenAmount} placeholder='Amount'/><br/>
-
-      
       <button type='submit'>Transfer</button>
       </form>
       </div>   
